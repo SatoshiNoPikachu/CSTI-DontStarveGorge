@@ -17,6 +17,11 @@ namespace DontStarveGorge.Data;
 public static class Loader
 {
     /// <summary>
+    /// 加载完成事件
+    /// </summary>
+    public static event Action LoadCompleteEvent;
+
+    /// <summary>
     /// 加载全部数据
     /// </summary>
     /// <param name="infos">数据信息</param>
@@ -33,8 +38,8 @@ public static class Loader
         }
 
         WarpData(warpData);
-        
-        OnLoadReady();
+
+        LoadCompleteEvent?.Invoke();
     }
 
     /// <summary>
@@ -292,20 +297,20 @@ public static class Loader
         }
     }
 
-    /// <summary>
-    /// 当加载准备就绪
-    /// </summary>
-    private static void OnLoadReady()
-    {
-        var iType = typeof(ILoadCallback);
-        foreach (var (type, dict) in Database.AllData)
-        {
-            if (!iType.IsAssignableFrom(type)) continue;
-
-            foreach (var obj in dict.Values)
-            {
-                (obj as ILoadCallback)?.OnLoadReady();
-            }
-        }
-    }
+    // /// <summary>
+    // /// 当加载准备就绪
+    // /// </summary>
+    // private static void OnLoadReady()
+    // {
+    //     var iType = typeof(ILoadCallback);
+    //     foreach (var (type, dict) in Database.AllData)
+    //     {
+    //         if (!iType.IsAssignableFrom(type)) continue;
+    //
+    //         foreach (var obj in dict.Values)
+    //         {
+    //             (obj as ILoadCallback)?.OnLoadReady();
+    //         }
+    //     }
+    // }
 }

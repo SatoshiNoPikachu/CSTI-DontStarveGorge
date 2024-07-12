@@ -135,7 +135,6 @@
         <Compile Include="Data\Database.cs" />
         <Compile Include="Data\DataCatalog.cs" />
         <Compile Include="Data\DataInfo.cs" />
-        <Compile Include="Data\ILoadCallback.cs" />
         <Compile Include="Data\Loader.cs" />
         <Compile Include="Helper.cs"/>
         <Compile Include="Patcher\GameLoadPatch.cs"/>
