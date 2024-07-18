@@ -4,7 +4,7 @@ using BepInEx;
 namespace DontStarveGorge.JsonData;
 
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
-public class Plugin : BaseUnityPlugin
+internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "Pikachu.DontStarveGorge.JsonData";
     public const string PluginName = "DontStarveGorgeJsonData";

@@ -4,7 +4,7 @@ using UnityEngine;
 namespace DontStarveGorge.Cooking;
 
 /// <summary>
-/// 食物标签
+/// 食材标签
 /// </summary>
 [Serializable]
-public class FoodTag : ScriptableObject;
+public class IngredientTag : ScriptableObject;

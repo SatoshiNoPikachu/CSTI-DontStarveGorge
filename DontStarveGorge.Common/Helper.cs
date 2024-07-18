@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace DontStarveGorge;
+namespace DontStarveGorge.Common;
 
 public static class Helper
 {

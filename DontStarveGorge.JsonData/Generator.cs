@@ -8,6 +8,7 @@ public static class Generator
     {
         var data = new EditorJsonData.EditorJsonData(Plugin.PluginPath, "Gorge-");
         data.AddType<Food>(true);
+        data.AddType<Ingredient>(true);
         data.CreateJsonData();
     }
 }

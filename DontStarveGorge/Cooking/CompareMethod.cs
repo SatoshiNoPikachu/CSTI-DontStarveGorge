@@ -4,21 +4,21 @@ namespace DontStarveGorge.Cooking;
 
 public enum CompareMethod
 {
-    [Description("大于")]
+    [Description(">")]
     Greater,
     
-    [Description("小于")]
+    [Description("<")]
     Less,
     
-    [Description("等于")]
+    [Description("==")]
     Equal,
     
-    [Description("不等于")]
+    [Description("!=")]
     NotEqual,
     
-    [Description("大于等于")]
+    [Description(">=")]
     GreaterOrEqual,
     
-    [Description("小于等于")]
+    [Description("<=")]
     LessOrEqual,
 }

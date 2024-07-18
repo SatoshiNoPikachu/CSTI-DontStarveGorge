@@ -11,13 +11,13 @@ public class CookingCondition
 {
     public CompareMethod CompareMethod;
     
-    public FoodTag[] FoodTags;
+    public IngredientTag[] FoodTags;
     
     public int Value;
 
     public bool QuantityDifferenceValue;
 
-    public bool Test(FoodTags tags, int quantity)
+    public bool Test(IngredientTags tags, int quantity)
     {
         var v1 = FoodTags.Sum(tag => tags[tag]);
         var v2 = QuantityDifferenceValue ? quantity - Value : Value;

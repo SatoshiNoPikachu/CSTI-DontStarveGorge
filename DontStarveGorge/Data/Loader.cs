@@ -168,6 +168,12 @@ public static class Loader
     /// <param name="jsonData">Json数据</param>
     private static void FixData(object obj, JsonData jsonData)
     {
+        if (obj is null)
+        {
+            Plugin.Log.LogWarning("Cannot fix data, because object is null!");
+            return;
+        }
+        
         var type = obj.GetType();
 
         if (jsonData.IsObject)
@@ -177,6 +183,7 @@ public static class Loader
                 if (fieldName.EndsWith("WarpData") || fieldName.EndsWith("WarpType")) continue;
 
                 var field = AccessTools.Field(type, fieldName);
+                if (field is null) continue;
                 var fieldType = field.FieldType;
                 if (field.GetValue(obj) is not null || fieldType.IsSubclassOf(typeof(Object))) continue;
 

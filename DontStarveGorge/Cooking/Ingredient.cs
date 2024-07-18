@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using DontStarveGorge.Data;
-using UnityEngine;
 
 namespace DontStarveGorge.Cooking;
 
@@ -9,13 +8,19 @@ namespace DontStarveGorge.Cooking;
 /// 食材
 /// </summary>
 [Serializable]
-public class Ingredient : ScriptableObject
+public class Ingredient : UniqueIDScriptable
 {
-    public static Dictionary<CardData, Ingredient> IngredientDict = new();
-    
+    public static readonly Dictionary<CardData, Ingredient> CardDict = new();
+
+    /// <summary>
+    /// 绑定卡牌
+    /// </summary>
     public CardData Card;
 
-    public FoodTag[] FoodTags;
+    /// <summary>
+    /// 食物标签
+    /// </summary>
+    public IngredientTag[] FoodTags;
 
     static Ingredient()
     {
@@ -24,20 +29,20 @@ public class Ingredient : ScriptableObject
 
     private static void OnLoadComplete()
     {
-        IngredientDict.Clear();
+        CardDict.Clear();
 
         var data = Database.GetData<Ingredient>().Values;
-        foreach (var ingredient in data)
+        foreach (var obj in data)
         {
-            var card = ingredient.Card;
+            var card = obj.Card;
             if (card is null) continue;
-            if (IngredientDict.ContainsKey(card))
+            if (CardDict.ContainsKey(card))
             {
-                Plugin.Log.LogWarning($"Card {card.name} has multiple ingredient binding.");
+                Plugin.Log.LogWarning($"Card {card.name} has multiple Ingredient binding.");
                 continue;
             }
 
-            IngredientDict[ingredient.Card] = ingredient;
+            CardDict[obj.Card] = obj;
         }
     }
 }

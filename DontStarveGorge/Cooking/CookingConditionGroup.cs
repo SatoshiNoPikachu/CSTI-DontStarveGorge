@@ -11,7 +11,7 @@ public class CookingConditionGroup
 {
     public CookingCondition[] CookingConditions;
 
-    public bool Test(FoodTags tags, int quantity)
+    public bool Test(IngredientTags tags, int quantity)
     {
         return CookingConditions.All(condition => condition.Test(tags, quantity));
     }

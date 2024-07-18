@@ -7,8 +7,8 @@
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>DontStarveGorge</RootNamespace>
-        <AssemblyName>DontStarveGorge</AssemblyName>
+        <RootNamespace>DontStarveGorge.Common</RootNamespace>
+        <AssemblyName>DontStarveGorge.Common</AssemblyName>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
         <LangVersion>preview</LangVersion>
@@ -46,14 +46,6 @@
         <Reference Include="BepInEx">
             <HintPath>lib\BepInEx.dll</HintPath>
             <Private>False</Private>
-        </Reference>
-        <Reference Include="LitJSON">
-          <HintPath>lib\LitJSON.dll</HintPath>
-          <Private>False</Private>
-        </Reference>
-        <Reference Include="ModLoader">
-          <HintPath>lib\ModLoader.dll</HintPath>
-          <Private>False</Private>
         </Reference>
         <Reference Include="System"/>
         <Reference Include="System.Core"/>
@@ -121,37 +113,10 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Cooking\CoinValue.cs" />
-        <Compile Include="Cooking\CompareMethod.cs" />
-        <Compile Include="Cooking\RecipeBook.cs" />
-        <Compile Include="Cooking\Ingredient.cs" />
-        <Compile Include="Cooking\CookingCondition.cs" />
-        <Compile Include="Cooking\CookingConditionGroup.cs" />
-        <Compile Include="Cooking\Cookware.cs" />
-        <Compile Include="Cooking\Food.cs" />
-        <Compile Include="Cooking\IngredientTag.cs" />
-        <Compile Include="Cooking\IngredientTags.cs" />
-        <Compile Include="Cooking\FoodType.cs" />
-        <Compile Include="Cooking\Recipe.cs" />
-        <Compile Include="Data\Database.cs" />
-        <Compile Include="Data\DataCatalog.cs" />
-        <Compile Include="Data\DataInfo.cs" />
-        <Compile Include="Data\Loader.cs" />
+        <Compile Include="AssetManager.cs" />
+        <Compile Include="Helper.cs"/>
         <Compile Include="Patcher\GameLoadPatch.cs"/>
-        <Compile Include="Patcher\GraphicsManagerPatch.cs" />
-        <Compile Include="Patcher\InGameCardBasePatch.cs" />
-        <Compile Include="Plugin.cs"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>
-    </ItemGroup>
-    <ItemGroup>
-      <ProjectReference Include="..\DontStarveGorge.Common\DontStarveGorge.Common.csproj">
-        <Project>{9590d196-b5a2-42b2-a4db-09ba30f0033d}</Project>
-        <Name>DontStarveGorge.Common</Name>
-      </ProjectReference>
-      <ProjectReference Include="..\DontStarveGorge.View.RecipeBook\DontStarveGorge.View.RecipeBook.csproj">
-        <Project>{d0686111-dfc0-4ad4-8415-56d2e0f2c6f6}</Project>
-        <Name>DontStarveGorge.View.RecipeBook</Name>
-      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

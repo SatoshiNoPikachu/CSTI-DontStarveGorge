@@ -1,33 +1,34 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DontStarveGorge.Common;
 
 namespace DontStarveGorge.Cooking;
 
 /// <summary>
-/// 食物标签组
+/// 食材标签组
 /// </summary>
-public class FoodTags
+public class IngredientTags
 {
-    private readonly Dictionary<FoodTag, int> _tags = new();
+    private readonly Dictionary<IngredientTag, int> _tags = new();
 
-    public int this[FoodTag tag]
+    public int this[IngredientTag tag]
     {
         get => GetValue(tag);
         set => SetValue(tag, value);
     }
 
-    public void SetValue(FoodTag tag, int value)
+    public void SetValue(IngredientTag tag, int value)
     {
         _tags[tag] = value;
     }
 
-    public int GetValue(FoodTag tag)
+    public int GetValue(IngredientTag tag)
     {
         return _tags.TryGetValue(tag, out var value) ? value : 0;
     }
 
-    public bool IsOnly(FoodTag[] tags)
+    public bool IsOnly(IngredientTag[] tags)
     {
         foreach (var (tag, value) in _tags)
         {
@@ -37,7 +38,7 @@ public class FoodTags
         return true;
     }
 
-    public bool IsNot(IEnumerable<FoodTag> tags)
+    public bool IsNot(IEnumerable<IngredientTag> tags)
     {
         return tags.All(tag => this[tag] == 0);
     }
